@@ -1,0 +1,40 @@
+<div class="container">
+    <ul class="nav nav-tabs">
+
+      <div class="pull-right user-info">
+        
+        <% if current_admin %>
+
+          <div class="pull-right">
+            <%= link_to "Sign Out", destroy_admin_session_path, method: :delete %>
+          </div>
+        
+        <% end %>
+      
+      </div>
+    </ul>
+
+  </br>
+
+    <table class="table table-striped">
+      <% @posts.each do |post| %>
+        <tr>
+          <td>
+            <%= post.name %>
+          </td>
+          <td>
+            <%= post.email %>
+          </td>
+          <td>
+            <%= post.phone_number %>
+          </td>
+          <td>
+            <%= post.wish %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+</div>
+
+

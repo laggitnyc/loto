@@ -1,0 +1,41 @@
+<%= form_for @post do |f| %>
+  
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </div>
+  
+  <div>
+    <%= f.label :wish %>
+    <%= f.text_area :wish %>
+  </div>
+
+ <!--  <%= f.submit 'Save', class: "btn btn-primary btn-block" %> -->
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Good Luck"
+          data-amount="150"
+          data-locale="auto"></script>
+
+
+<% end %>
+
+
+<!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Good Luck"
+          data-amount="500"
+          data-locale="auto"></script>
