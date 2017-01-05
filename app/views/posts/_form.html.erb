@@ -3,7 +3,7 @@
 
   <div>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, type: 'form' %>
   </div>
 
   <div>
@@ -21,15 +21,28 @@
     <%= f.text_area :wish %>
   </div>
 
- <!--  <%= f.submit 'Save', class: "btn btn-primary btn-block" %> -->
-
-
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Good Luck"
-          data-amount="150"
-          data-locale="auto"></script>
+          data-amount="500"
+          data-locale="auto"></script> 
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $form = $('#new_post'); // cache
+      $form.find(':input[type="submit"]').prop('disabled', true); // disable submit btn
+      $form.find(':input').change(function() { // monitor all inputs for changes
+          var disable = false;
+          $form.find(':input').not('[type="submit"]').each(function(i, el) { // test all inputs for values
+              if ($.trim(el.value) === '') {
+                  disable = true; // disable submit if any of them are still blank
+              }
+          });
+          $form.find(':input[type="submit"]').prop('disabled', disable);
+      });
+    });
+  </script>
 
 <% end %>
 
