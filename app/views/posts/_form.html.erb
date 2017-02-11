@@ -1,33 +1,40 @@
 <%= form_for @post do |f| %>
   
 
-  <div>
+
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, type: 'form' %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
+
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class: "form-control" %>
   </div>
   
-  <div>
+  <div class="form-group">
     <%= f.label :wish %>
-    <%= f.text_area :wish %>
+    <%= f.text_area :wish, class: "form-control" %>
   </div>
+<!-- </div> -->
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Good Luck"
-          data-amount="500"
+          data-amount="150"
           data-locale="auto"></script> 
 
+  <div class="clock"></div>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function() {
       $form = $('#new_post'); // cache
@@ -44,11 +51,16 @@
     });
   </script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
+  <script type="text/javascript">
+    var clock = $('.clock').FlipClock(25 * 25 * 35 * 35, {
+      clockFace: 'DailyCounter',
+      countdown: true,
+    });
+  </script>
+
+ 
+
 <% end %>
 
-
-<!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Good Luck"
-          data-amount="500"
-          data-locale="auto"></script>
