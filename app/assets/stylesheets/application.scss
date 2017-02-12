@@ -17,6 +17,33 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
 .margin-bottom-5 {
   margin-bottom: 5%;
+}
+
+.margin-top-5 {
+  margin-top: 5%;
+}
+
+.flip-clock-wrapper ul {
+  width: 55.8px !important;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+/*  .flip-clock-wrapper {
+    margin: 0.5em !important;
+    width: 101% !important;
+  }
+
+  .flip-clock-wrapper ul {
+    width: 20px !important;
+  }  
+
+  .flip-clock-divider .flip-clock-label {
+    right: -67px !important;
+  }*/
+
 }

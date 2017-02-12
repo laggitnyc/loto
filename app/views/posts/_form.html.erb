@@ -28,9 +28,10 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Good Luck"
           data-amount="150"
-          data-locale="auto"></script> 
+          data-locale="auto">
+  </script> 
 
-  <div class="clock"></div>
+
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -48,15 +49,6 @@
           });
           $form.find(':input[type="submit"]').prop('disabled', disable);
       });
-    });
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
-
-  <script type="text/javascript">
-    var clock = $('.clock').FlipClock(25 * 25 * 35 * 35, {
-      clockFace: 'DailyCounter',
-      countdown: true,
     });
   </script>
 
